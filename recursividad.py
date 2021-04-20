@@ -53,7 +53,7 @@ def invert(s):  # Ejercicio 6
     if (len(s) == 1):
         return (s)
     else:
-        return s[-1]+invert(s[:-1])
+        return (s[-1]+invert(s[:-1]))
 
 
 def serie(n):  # Ejercicio 7
@@ -107,13 +107,15 @@ def mcd(n, n2):  # Ejercicio 11
 def Usarlafuerza(lista, O_buscado, indice):
         if (lista[indice] == O_buscado):
             print(O_buscado)
-            print('se sacaron ', indice, 'objetos')
+            print('se sacaron ', (indice+1), 'objetos')
         else:
-            print(lista[indice])
+            print(lista[indice]) 
             Usarlafuerza(lista, O_buscado, (indice+1))
 
 
-mochila = ['objeto1','objeto2','sable de luz','objeto3','objeto4','objeto5']
 
-print (romano("XCVII"))
-Usarlafuerza(mochila,'sable de luz',0)
+#print (romano("XCVII"))
+
+mochila = ['objeto1','objeto2','objeto3','sable de luz','objeto4','objeto5']
+Usarlafuerza(mochila,'objeto5',0)
+#print (invertDecaBin(5))
