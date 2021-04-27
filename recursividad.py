@@ -114,8 +114,18 @@ def Usarlafuerza(lista, O_buscado, indice):
 
 
 
+def laberinto(matriz):
+    if laberinto()
+
 #print (romano("XCVII"))
 
 mochila = ['objeto1','objeto2','objeto3','sable de luz','objeto4','objeto5']
 Usarlafuerza(mochila,'objeto5',0)
 #print (invertDecaBin(5))
+
+matriz =[ [0,0,1,1,1]
+          [1,0,0,0,1]
+          [1,1,0,1,1]
+          [1,0,0,1,1]
+          [1,0,0,0,2] ]
+
