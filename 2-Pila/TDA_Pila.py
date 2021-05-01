@@ -22,11 +22,11 @@ class pila(object):
 
     def barrido_pila(self): # realiza un barrido de la pila y la reconstruye
         paux = pila()
-        while (not pila_vacia(pila)):
-            dato = desapilar(pila)
+        while (not pila.pila_vacia(self)):
+            dato = pila.desapilar(self)
             print(dato)
-            apilar(paux,dato)
+            paux.apilar(dato)
         
-        while (not pila_vacia(paux)):
-            dato = desapilar(paux)
-            apilar(pila, dato)
+        while (not paux.pila_vacia()):
+            dato = paux.desapilar()
+            self.apilar(dato)
