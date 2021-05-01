@@ -57,6 +57,28 @@ def reemplazar(buscado, suplente):
 
     #nums.barrido_pila()
 
+def invertir_pila():
+    duracell = pila()
+    aux_pila =pila()
+    cargar_pila_random(duracell)
+
+    rollback = 1
+    j = duracell.tamanio()
+    for i in range(j):
+        while (not duracell.pila_vacia()):
+            dato = duracell.desapilar()
+            aux_pila.apilar(dato)
+            if duracell.tamanio() == rollback:
+                dato = duracell.desapilar()
+                rollback += 1
+                break
+        while(not aux_pila.desapilar()):
+            aux_dato =aux_pila.desapilar()
+            duracell.apilar = aux_dato
+            if (aux_pila.tamanio()< (j-1) ):
+                aux_pila.apilar(dato)
+
+
 
 
 
@@ -73,3 +95,4 @@ def reemplazar(buscado, suplente):
 #ocurrencias(buscado)
 #eliminar_pares()
 #reemplazar(3,5)
+invertir_pila()
