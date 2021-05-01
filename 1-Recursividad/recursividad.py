@@ -114,8 +114,17 @@ def Usarlafuerza(lista, O_buscado, indice):
 
 
 
-def laberinto(matriz):
-    if laberinto()
+def laberinto(x, y, matriz):
+    if(x >= 0 and x <= len(matriz)-1) and (y >= 0 and y <= len(matriz[0])-1):
+        if (matriz[x][y] == 2):
+            print("Se Salio del Laberinto")
+        elif (matriz[x][y] == 1):
+            matriz[x][y] = 3
+            laberinto(x, y+1, matriz)
+            laberinto(x, y-1, matriz)
+            laberinto(x+1, y, matriz)
+            laberinto(x-1, y, matriz)
+            matriz[x][y] = 1
 
 #print (romano("XCVII"))
 
@@ -123,9 +132,9 @@ mochila = ['objeto1','objeto2','objeto3','sable de luz','objeto4','objeto5']
 Usarlafuerza(mochila,'objeto5',0)
 #print (invertDecaBin(5))
 
-matriz =[ [0,0,1,1,1]
-          [1,0,0,0,1]
-          [1,1,0,1,1]
-          [1,0,0,1,1]
-          [1,0,0,0,2] ]
-
+matriz =[ [1,1,1,1,1]
+          [0,0,1,0,1]
+          [1,1,1,0,1]
+          [1,0,0,0,0]
+          [1,1,1,1,2] ]
+laberinto(0,0,matriz)
