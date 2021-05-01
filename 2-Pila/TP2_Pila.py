@@ -1,16 +1,19 @@
 from TDA_Pila import pila
 from random import randint
 
+def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
+    pila.apilar(randint(0, 10))
+    pila.apilar(randint(0, 10))
+    pila.apilar(randint(0, 10))
+    pila.apilar(randint(0, 10))
+    pila.apilar(randint(0, 10))
+    #pila.barrido_pila()
+
 def ocurrencias(buscado):
     element = pila()
     elementos_aux = pila()
+    cargar_pila_random(element)
 
-    element.apilar(randint(0, 10))
-    element.apilar(randint(0, 10))
-    element.apilar(randint(0, 10))
-    element.apilar(randint(0, 10))
-    element.apilar(randint(0, 10))
-    element.barrido_pila()
     cont = 0
     while(not element.pila_vacia()):
         dato = element.desapilar()
@@ -23,12 +26,7 @@ def ocurrencias(buscado):
 def eliminar_pares():
     nums = pila()
     aux = pila()
-    nums.apilar(randint(0, 10))
-    nums.apilar(randint(0, 10))
-    nums.apilar(randint(0, 10))
-    nums.apilar(randint(0, 10))
-    nums.apilar(randint(0, 10))
-    nums.barrido_pila()
+    cargar_pila_random(nums)
 
     while(not nums.pila_vacia()):
         num = nums.desapilar()
@@ -39,9 +37,25 @@ def eliminar_pares():
         num = aux.desapilar()
         nums.apilar(num)
 
-    nums.barrido_pila()
+    #nums.barrido_pila()
 
+def reemplazar(buscado, suplente):
+    nums = pila()
+    aux = pila()
+    cargar_pila_random(nums)
 
+    while (not nums.pila_vacia()):
+        dato = nums.desapilar()
+        if (dato == buscado):
+            aux.apilar(suplente)
+        else:
+            aux.apilar(dato)
+
+    while (not aux.pila_vacia()):
+        dato = aux.desapilar()
+        nums.apilar(dato)
+
+    #nums.barrido_pila()
 
 
 
@@ -58,3 +72,4 @@ def eliminar_pares():
 #buscado = int(input("ingresa algo wey: "))
 #ocurrencias(buscado)
 #eliminar_pares()
+#reemplazar(3,5)
