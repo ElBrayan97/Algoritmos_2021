@@ -57,6 +57,7 @@ def reemplazar(buscado, suplente):
 
     #nums.barrido_pila()
 
+"""
 def invertir_pila():
     duracell = pila()
     aux_pila =pila()
@@ -77,13 +78,30 @@ def invertir_pila():
             duracell.apilar = aux_dato
             if (aux_pila.tamanio()< (j-1) ):
                 aux_pila.apilar(dato)
+"""
 
+def palindromo(word):
+    palabra = pila()
+    inv_palabra=pila()
+    
+    for i in range(len(word)):
+        palabra.apilar(word[i:i+1])
+    for i in range(len(word)):
+        dato = palabra.desapilar()
+        inv_palabra.apilar(dato)
 
+    for i in range(len(word)):
+        palabra.apilar(word[i:i+1])        
+    
+    ac = 0
+    while not palabra.pila_vacia():
+        if (palabra.desapilar() == inv_palabra.desapilar()):
+            ac += 1
 
-
-
-
-
+    if ac == len(word):
+        print("Es palindromo")
+    else:
+        print("No es palindromo")
 
 
 
@@ -95,4 +113,7 @@ def invertir_pila():
 #ocurrencias(buscado)
 #eliminar_pares()
 #reemplazar(3,5)
-invertir_pila()
+#invertir_pila()
+
+word = str(input())
+palindromo(word)

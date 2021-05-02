@@ -20,6 +20,8 @@ class pila(object):
     def elemento_cima(self): # devuelve el elemento de la cima de la pila
         return self.__elementos[-1]
 
+
+
     def barrido_pila(self): # realiza un barrido de la pila y la reconstruye
         paux = pila()
         while (not pila.pila_vacia(self)):
