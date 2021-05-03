@@ -3,10 +3,13 @@ class pila(object):
 
     def __init__(self): # constructor de la pila 
         self.__elementos = []
-        self.__nombre = '' 
+        self.__nombre = ""
 
-    def apilar(self, dato): # apila un elemento
-        self.__elementos.append(dato)
+
+    def apilar(self, element): # apila un elemento
+        self.__elementos.append(element)
+
+
 
     def desapilar(self): # desapila el elemento de la cima
         return (self.__elementos.pop())
