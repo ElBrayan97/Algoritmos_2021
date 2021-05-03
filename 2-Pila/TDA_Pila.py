@@ -9,7 +9,7 @@ class pila(object):
         self.__elementos.append(dato)
 
     def desapilar(self): # desapila el elemento de la cima
-        return self.__elementos.pop()
+        return (self.__elementos.pop())
 
     def pila_vacia(self): # devuelve si la pila esta vacia
         return (len(self.__elementos) == 0)
