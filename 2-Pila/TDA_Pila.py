@@ -5,11 +5,8 @@ class pila(object):
         self.__elementos = []
         self.__nombre = ""
 
-
     def apilar(self, element): # apila un elemento
         self.__elementos.append(element)
-
-
 
     def desapilar(self): # desapila el elemento de la cima
         return (self.__elementos.pop())

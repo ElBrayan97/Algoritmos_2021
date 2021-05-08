@@ -8,7 +8,6 @@ def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
     pila.apilar(randint(0, 10))
     pila.apilar(randint(0, 10))
     pila.apilar(randint(0, 10))
-    #pila.barrido_pila()
 
 def cargar_bitacoras(pila1,pila2):
     pila1.apilar("Boba Fett", "planeta1","captura2",100)
@@ -77,25 +76,24 @@ def reemplazar(buscado, suplente): # ok
     #nums.barrido_pila()
 
 def invertir_pila(): #fail! nosecomocarajoshacerlo :D
-    duracell = pila()
-    aux_pila =pila()
-    cargar_pila_random(duracell)
+    pila_1 = pila()
+    pila_aux =pila()
+    cargar_pila_random(pila_1)
+    pila_1.barrido_pila()
+    control = 0
 
-    rollback = 1
-    j = duracell.tamanio()
-    for i in range(j):
-        while (not duracell.pila_vacia()):
-            dato = duracell.desapilar()
-            aux_pila.apilar(dato)
-            if duracell.tamanio() == rollback:
-                dato = duracell.desapilar()
-                rollback += 1
-                break
-        while(not aux_pila.desapilar()):
-            aux_dato =aux_pila.desapilar()
-            duracell.apilar = aux_dato
-            if (aux_pila.tamanio()< (j-1) ):
-                aux_pila.apilar(dato)
+    while ((pila_1.tamanio()) > control):
+        dato = pila_1.desapilar()
+        while (pila_1.tamanio() != control) or (not pila_1.pila_vacia()):
+            pila_aux.apilar(pila_1.desapilar)
+        pila_1.apilar(dato)
+        control += 1
+        while not pila_aux.pila_vacia():
+            pila_1.apilar(pila_aux.desapilar())
+
+    print("reordenada")
+    pila_1.barrido_pila()
+
 
 def palindromo(word): # ok
     palabra = pila()
@@ -151,7 +149,7 @@ def personajes(): #16
             if (personaje == personaje2):
                 coincidencias.apilar(personaje)
             Aux2.apilar(personaje2)   
-        
+
         while not Aux2.pila_vacia():
             dato = Aux2.desapilar()
             VII.apilar(dato)
@@ -186,10 +184,10 @@ def personajes_MCU(): #24
 # ocurrencias(buscado)
 # eliminar_pares()
 # reemplazar(3,5)
-# invertir_pila()
+invertir_pila()
 
 # word = str(input())
 # palindromo(word)
 # ordenar()
-personajes()
+#personajes()
 # bitacoras()
