@@ -8,6 +8,8 @@ def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
     pila.apilar(randint(0, 10))
     pila.apilar(randint(0, 10))
     pila.apilar(randint(0, 10))
+    pila.barrido_pila();
+    print("fin barrido")
 
 def cargar_bitacoras(pila1,pila2):
     pila1.apilar("Boba Fett", "planeta1","captura2",100)
@@ -75,25 +77,21 @@ def reemplazar(buscado, suplente): # ok
 
     #nums.barrido_pila()
 
-def invertir_pila(): #fail! nosecomocarajoshacerlo :D
+def invertir_pila(): #ok (me costo una banda!!! WTF!)
     pila_1 = pila()
-    pila_aux =pila()
+    pila_aux = pila()
     cargar_pila_random(pila_1)
-    pila_1.barrido_pila()
-    control = 0
-
-    while ((pila_1.tamanio()) > control):
+    for i in range (0, pila_1.tamanio()):
         dato = pila_1.desapilar()
-        while (pila_1.tamanio() != control) or (not pila_1.pila_vacia()):
-            pila_aux.apilar(pila_1.desapilar)
+        while (pila_1.tamanio() != i):
+            aux = pila_1.desapilar()
+            pila_aux.apilar(aux)
         pila_1.apilar(dato)
-        control += 1
-        while not pila_aux.pila_vacia():
-            pila_1.apilar(pila_aux.desapilar())
-
+        while (not pila_aux.pila_vacia()):
+            aux = pila_aux.desapilar()
+            pila_1.apilar(aux)
     print("reordenada")
     pila_1.barrido_pila()
-
 
 def palindromo(word): # ok
     palabra = pila()
@@ -156,7 +154,6 @@ def personajes(): #16
     print("Personajes que aparecen en las 2 películas:")
     while not coincidencias.pila_vacia():
         print(coincidencias.desapilar())
-
 
 
 def bitacoras(): #22
