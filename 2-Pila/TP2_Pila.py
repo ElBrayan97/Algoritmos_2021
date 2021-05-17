@@ -116,25 +116,32 @@ def palindromo(word): # ok
     else:
         print("No es palindromo")
 
-def ordenar(): # 14 Esta cosa fea no anda >:V
+def ordenar(a_cargar): # 14 Esta cosa fea no anda >:V
     pilaA = pila()
     pilaB = pila()
-    cargar_pila_random(pilaA)
-    pilaA.barrido_pila()
     orden = False
     while (not orden):
-        while (not pilaA.pila_vacia()):
-            dato1 = pilaA.elemento_cima()
-            print (dato1)
-            dato2 = pilaA.elemento_cima()
-            if (dato1 >= dato2):
-                orden=False
-                pilaB.apilar(dato1)
-                pilaB.apilar(dato2)
+        if (not pilaA.pila_vacia()):
+            dato = pilaA.desapilar()
+            if (dato < a_cargar):
+                pilaA.apilar(a_cargar)
+                pilaB.apilar(dato)
+                orden = True
             else:
-                orden=True
-                pilaB.apilar(dato2)
-                pilaB.apilar(dato1)
+                pilaB.apilar(dato)
+                orden = False
+        else:
+            pilaA.apilar(a_cargar)
+            orden = True
+
+
+
+    for i in range(0, (pilaB.tamanio()-1)):
+        aux = pilaB.desapilar()
+        pilaA.apilar(aux)
+
+    pilaA.barrido_pila()
+
 
 def personajes(): #16
     V, VII, Aux1, Aux2, coincidencias = pila(), pila(), pila(), pila(), pila()
@@ -181,10 +188,15 @@ def personajes_MCU(): #24
 # ocurrencias(buscado)
 # eliminar_pares()
 # reemplazar(3,5)
-invertir_pila()
+# invertir_pila()
 
 # word = str(input())
 # palindromo(word)
-# ordenar()
+
+dato = int(input('Ingrese un numero: '))
+while (dato != 0):
+    ordenar(dato)
+    dato = int(input('Ingrese un numero: '))
+
 #personajes()
 # bitacoras()
