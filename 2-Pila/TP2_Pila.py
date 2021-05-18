@@ -11,21 +11,32 @@ def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
     pila.barrido_pila();
     print("fin barrido")
 
-def cargar_bitacoras(pila1,pila2):
-    pila1.apilar("Boba Fett", "planeta1","captura2",100)
-    pila1.apilar("Boba Fett", "planeta3","captura1",200)
-    pila1.apilar("Boba Fett", "planeta7","captura3",500)
-    pila2.apilar("Din Djarin", "planeta2","captura6",700)
-    pila2.apilar("Din Djarin", "planeta3","captura4",200)
-    pila2.apilar("Din Djarin", "planeta5","captura5",300)
+def cargar_bitacoras(pila1, pila2):
+    pila1.apilar("planeta1","captura2",100)
+    pila1.apilar("planeta3","captura1",200)
+    pila1.apilar("planeta7","captura3",500)
+    pila2.apilar("planeta2","captura6",700)
+    pila2.apilar("planeta3","captura4",200)
+    pila2.apilar("planeta5","captura5",300)
 
 def cargar_personajes(pila1,pila2):
-    pila1.apilar("otro2")
-    pila1.apilar("Din Djarin")
-    pila1.apilar("Buba Feet")
-    pila2.apilar("otro")
-    pila2.apilar("Buba Feet")
-    pila2.apilar("Din Djarin")
+    pila1.apilar("Luke Skywalker")
+    pila1.apilar("Han Solo")
+    pila1.apilar("Leia Organa")
+    pila1.apilar("Darth Vader")
+    pila1.apilar("R2-D2")
+    pila1.apilar("Lando Calrissian")
+    pila1.apilar("C-3PO")
+    pila1.apilar("Chewbacca")
+
+    pila2.apilar("Han Solo")
+    pila2.apilar("Leia Organa")
+    pila2.apilar("Rey")
+    pila2.apilar("Finn")
+    pila2.apilar("Kylo Ren")
+    pila2.apilar("Poe Dameron")
+    pila2.apilar("Maz Kanata")
+    pila2.apilar("Luke Skywalker")
 ## FUNCIONES DE CARGA ##
 
 ## EJERCICIOS ##
@@ -116,34 +127,43 @@ def palindromo(word): # ok
     else:
         print("No es palindromo")
 
-def ordenar(a_cargar): # 14 Esta cosa fea no anda >:V
+
+
+
+def ordenar(): # 14 Esta cosa fea no anda >:V
     pilaA = pila()
     pilaB = pila()
     orden = False
-    while (not orden):
-        if (not pilaA.pila_vacia()):
-            dato = pilaA.desapilar()
-            if (dato < a_cargar):
-                pilaA.apilar(a_cargar)
-                pilaB.apilar(dato)
-                orden = True
+    continuar = 'si'
+
+    while ((continuar.lower) != 'si'):
+        num = int(input('Ingrese un numero: '))
+
+        while (not orden):
+            if (pilaA.pila_vacia()):
+                pilaA.apilar(num)
+                orden = True                
             else:
-                pilaB.apilar(dato)
-                orden = False
-        else:
-            pilaA.apilar(a_cargar)
-            orden = True
+                dato = pilaA.desapilar()
+                if (num >= dato):
+                    pilaA.apilar(num)
+                    pilaA.apilar(dato)
+                    orden = True
+                else:
+                    pilaB.apilar(dato)
+                    orden = False
+            
+            for i in range(0, (pilaB.tamanio()-1)):
+                aux = pilaB.desapilar()
+                pilaA.apilar(aux)
 
+        print('barrido A')
+        pilaA.barrido_pila()
+        print('barrido B')
+        pilaB.barrido_pila()
+        continuar = str(input('Continuar Cargando?... '))        
 
-
-    for i in range(0, (pilaB.tamanio()-1)):
-        aux = pilaB.desapilar()
-        pilaA.apilar(aux)
-
-    pilaA.barrido_pila()
-
-
-def personajes(): #16
+def personajes(): #16 ok
     V, VII, Aux1, Aux2, coincidencias = pila(), pila(), pila(), pila(), pila()
     cargar_personajes(V,VII)
     while not V.pila_vacia():
@@ -158,24 +178,31 @@ def personajes(): #16
         while not Aux2.pila_vacia():
             dato = Aux2.desapilar()
             VII.apilar(dato)
-    print("Personajes que aparecen en las 2 películas:")
+    print("Personajes que aparecen en los 2 capítulos:")
     while not coincidencias.pila_vacia():
         print(coincidencias.desapilar())
 
-
 def bitacoras(): #22
-
-
-    nave1 = pila()
-    nave2 = pila()
+    BobaFett = pila()
+    DinDjarin = pila()
     pila_Aux = pila()
-    cargar_bitacoras(nave1, nave2)
+    cargar_bitacoras(BobaFett, DinDjarin)
+    print('planetas visitados(mas antiguo a mas reciente):')
+    print('Boba Fett')
+    while not BobaFett.pila_vacia:
+        pila_Aux.apilar = BobaFett.desapilar
+    while not pila_Aux.pila_vacia:
+        aux = pila_Aux.desapilar
+        print (aux)
+        BobaFett.apilar(aux)
 
-    while not nave1.pila_vacia():
-        data = nave1.desapilar()
-        pila_Aux.apilar(data[1], data[2], data[3], data[4])
-    while not pila_Aux.pila_vacia():
-        print (pila_Aux.desapilar())    
+    print('Din Djarin')
+    while not DinDjarin.pila_vacia:
+        pila_Aux.apilar = DinDjarin.desapilar
+    while not pila_Aux.pila_vacia:
+        aux = pila_Aux.desapilar
+        print (aux)
+        DinDjarin.apilar(aux)
 
 def personajes_MCU(): #24
     pass
@@ -192,11 +219,8 @@ def personajes_MCU(): #24
 
 # word = str(input())
 # palindromo(word)
+#ordenar()
 
-dato = int(input('Ingrese un numero: '))
-while (dato != 0):
-    ordenar(dato)
-    dato = int(input('Ingrese un numero: '))
 
-#personajes()
-# bitacoras()
+# personajes()
+bitacoras()
