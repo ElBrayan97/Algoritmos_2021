@@ -3,7 +3,6 @@ class pila(object):
 
     def __init__(self): # constructor de la pila 
         self.__elementos = []
-        self.__nombre = ""
 
     def apilar(self, element): # apila un elemento
         self.__elementos.append(element)

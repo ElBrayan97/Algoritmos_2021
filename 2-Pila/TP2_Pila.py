@@ -1,3 +1,5 @@
+from os import read
+from typing import get_origin
 from TDA_Pila import pila
 from random import randint
 
@@ -12,12 +14,22 @@ def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
     print("fin barrido")
 
 def cargar_bitacoras(pila1, pila2):
-    pila1.apilar("planeta1","captura2",100)
-    pila1.apilar("planeta3","captura1",200)
-    pila1.apilar("planeta7","captura3",500)
-    pila2.apilar("planeta2","captura6",700)
-    pila2.apilar("planeta3","captura4",200)
-    pila2.apilar("planeta5","captura5",300)
+
+        a = ["planeta1","captura2",100]
+        pila1.apilar(a)
+        a = ["planeta3","captura1",200]
+        pila1.apilar(a)
+        a = ["planeta7","captura3",500]
+        pila1.apilar(a)
+
+        a = ["planeta2","captura6",700]
+        pila2.apilar(a)
+        a = ["planeta3","captura4",200]
+        pila2.apilar(a)
+        a = ["planeta5","Han Solo",300]
+        pila2.apilar(a)
+        a = ["planeta6","captura6",300]
+        pila2.apilar(a)
 
 def cargar_personajes(pila1,pila2):
     pila1.apilar("Luke Skywalker")
@@ -128,8 +140,6 @@ def palindromo(word): # ok
         print("No es palindromo")
 
 
-
-
 def ordenar(): # 14 Esta cosa fea no anda >:V
     pilaA = pila()
     pilaB = pila()
@@ -183,29 +193,72 @@ def personajes(): #16 ok
         print(coincidencias.desapilar())
 
 def bitacoras(): #22
+    CG_1 = 0
+    CG_2 = 0
+    N_mision = 0
+    Han = False
+
     BobaFett = pila()
     DinDjarin = pila()
     pila_Aux = pila()
     cargar_bitacoras(BobaFett, DinDjarin)
-    print('planetas visitados(mas antiguo a mas reciente):')
-    print('Boba Fett')
-    while not BobaFett.pila_vacia:
-        pila_Aux.apilar = BobaFett.desapilar
-    while not pila_Aux.pila_vacia:
-        aux = pila_Aux.desapilar
-        print (aux)
+    print (' ')
+    print('planetas visitados(mas antiguo a mas reciente): ')
+
+    print('Boba Fett: ')
+    while not BobaFett.pila_vacia():
+        aux = BobaFett.desapilar()
+        pila_Aux.apilar(aux)
+
+    while not pila_Aux.pila_vacia():
+        aux = pila_Aux.desapilar()
+        print (aux[0])
+        if aux[1]=='Han Solo':
+            Han = True       
+        CG_1 = (CG_1 + aux[2])
+        N_mision +=1
         BobaFett.apilar(aux)
 
-    print('Din Djarin')
-    while not DinDjarin.pila_vacia:
-        pila_Aux.apilar = DinDjarin.desapilar
-    while not pila_Aux.pila_vacia:
-        aux = pila_Aux.desapilar
-        print (aux)
+    print ('Cantidad de Misiones: ', N_mision, '  Créditos Obtenidos: ',CG_1)
+    if Han == True:
+        print ('Boba Fett capturo a Han Solo')
+        Han = False
+
+    print (' ')
+
+    print('Din Djarin: ')
+    while not DinDjarin.pila_vacia():
+        aux = DinDjarin.desapilar()
+        pila_Aux.apilar (aux)
+
+    N_mision = 0
+    while not pila_Aux.pila_vacia():
+        aux = pila_Aux.desapilar()
+        print (aux[0])
+        if aux[1]=='Han Solo':
+            Han = True
+        CG_2 = (CG_2 + aux[2])
+        N_mision +=1
         DinDjarin.apilar(aux)
+
+    print ('Cantidad de Misiones: ', N_mision, '  Créditos Obtenidos: ',CG_2)
+    if Han == True:
+        print ('Din Djarin capturo a Han Solo')
+  
+    print (' ')
+
+    if CG_2 > CG_1:
+        print ('Din Djarin gano mas créditos')
+    elif (CG_2 == CG_1):
+        print ('Ambos ganaron lo mismo')
+    else:
+        print ('Boba Fett gano mas créditos')
+
+    str(input())
 
 def personajes_MCU(): #24
     pass
+
 
 ## EJERCICIOS ##
 
