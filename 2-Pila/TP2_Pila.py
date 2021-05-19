@@ -1,5 +1,3 @@
-from os import read
-from typing import get_origin
 from TDA_Pila import pila
 from random import randint
 
@@ -14,24 +12,23 @@ def cargar_pila_random(pila): # funcion para cargar elementos random a una pila
     print("fin barrido")
 
 def cargar_bitacoras(pila1, pila2):
+    a = ["planeta1","captura2",100]
+    pila1.apilar(a)
+    a = ["planeta3","captura1",200]
+    pila1.apilar(a)
+    a = ["planeta7","captura3",500]
+    pila1.apilar(a)
 
-        a = ["planeta1","captura2",100]
-        pila1.apilar(a)
-        a = ["planeta3","captura1",200]
-        pila1.apilar(a)
-        a = ["planeta7","captura3",500]
-        pila1.apilar(a)
+    a = ["planeta2","captura6",700]
+    pila2.apilar(a)
+    a = ["planeta3","captura4",200]
+    pila2.apilar(a)
+    a = ["planeta5","Han Solo",300]
+    pila2.apilar(a)
+    a = ["planeta6","captura6",300]
+    pila2.apilar(a)
 
-        a = ["planeta2","captura6",700]
-        pila2.apilar(a)
-        a = ["planeta3","captura4",200]
-        pila2.apilar(a)
-        a = ["planeta5","Han Solo",300]
-        pila2.apilar(a)
-        a = ["planeta6","captura6",300]
-        pila2.apilar(a)
-
-def cargar_personajes(pila1,pila2):
+def cargar_personajes(pila1, pila2):
     pila1.apilar("Luke Skywalker")
     pila1.apilar("Han Solo")
     pila1.apilar("Leia Organa")
@@ -143,35 +140,26 @@ def palindromo(word): # ok
 def ordenar(): # 14 Esta cosa fea no anda >:V
     pilaA = pila()
     pilaB = pila()
-    orden = False
-    continuar = 'si'
 
-    while ((continuar.lower) != 'si'):
+    for i in range (0, 5):
         num = int(input('Ingrese un numero: '))
 
-        while (not orden):
-            if (pilaA.pila_vacia()):
-                pilaA.apilar(num)
-                orden = True                
+        while (not pilaA.pila_vacia()):
+            if (pilaA.elemento_cima() >= num):
+                aux = pilaA.desapilar()
+                pilaB.apilar(aux)
             else:
-                dato = pilaA.desapilar()
-                if (num >= dato):
-                    pilaA.apilar(num)
-                    pilaA.apilar(dato)
-                    orden = True
-                else:
-                    pilaB.apilar(dato)
-                    orden = False
-            
-            for i in range(0, (pilaB.tamanio()-1)):
-                aux = pilaB.desapilar()
                 pilaA.apilar(aux)
 
-        print('barrido A')
-        pilaA.barrido_pila()
-        print('barrido B')
-        pilaB.barrido_pila()
-        continuar = str(input('Continuar Cargando?... '))        
+        while (not pilaB.pila_vacia()):
+            aux = pilaB.desapilar()
+            pilaA.apilar(aux)
+
+    print('barrido A')
+    pilaA.barrido_pila()
+    print('barrido B (tiene q estar vacia)')
+    pilaB.barrido_pila()
+
 
 def personajes(): #16 ok
     V, VII, Aux1, Aux2, coincidencias = pila(), pila(), pila(), pila(), pila()
@@ -192,7 +180,7 @@ def personajes(): #16 ok
     while not coincidencias.pila_vacia():
         print(coincidencias.desapilar())
 
-def bitacoras(): #22
+def bitacoras(): #22 ok
     CG_1 = 0
     CG_2 = 0
     N_mision = 0
@@ -272,8 +260,8 @@ def personajes_MCU(): #24
 
 # word = str(input())
 # palindromo(word)
-#ordenar()
+ordenar()
 
 
 # personajes()
-bitacoras()
+# bitacoras()

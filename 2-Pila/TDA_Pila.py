@@ -1,5 +1,5 @@
 class pila(object):
-#EL DOBLE __ HACE QUE EL OBJETO/VARIABLE SEA DE TIPO PRIVAOD#
+#EL DOBLE __ HACE QUE EL OBJETO/VARIABLE SEA DE TIPO PRIVADO#
 
     def __init__(self): # constructor de la pila 
         self.__elementos = []
@@ -14,7 +14,7 @@ class pila(object):
         return (len(self.__elementos) == 0)
 
     def tamanio(self): # devuelve el tamanio de la pila
-        return len(self.__elementos)
+        return (len(self.__elementos))
 
     def elemento_cima(self): # devuelve el elemento de la cima de la pila
         return self.__elementos[-1]
