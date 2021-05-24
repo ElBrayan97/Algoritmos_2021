@@ -46,6 +46,46 @@ def cargar_personajes(pila1, pila2):
     pila2.apilar("Poe Dameron")
     pila2.apilar("Maz Kanata")
     pila2.apilar("Luke Skywalker")
+
+def cargar_MCU(pila1):
+    a = ["Tony Stark",11]
+    pila1.apilar(a)
+    a = ["War Machine",8]
+    pila1.apilar(a)
+    a = ["Hulk",8]
+    pila1.apilar(a)
+    a = ["Black Widow",9]
+    pila1.apilar(a)
+    a = ["Thor",9]
+    pila1.apilar(a)
+    a = ["Hawkeye",5]
+    pila1.apilar(a)
+    a = ["Capitán América",11]
+    pila1.apilar(a)
+    a = ["Winter Soldier",7]
+    pila1.apilar(a)
+    a = ["Falcon",7]
+    pila1.apilar(a)
+    a = ["Groot",5]
+    pila1.apilar(a)
+    a = ["Qick Silver",2]
+    pila1.apilar(a)
+    a = ["Scarlet Witch",6]
+    pila1.apilar(a)
+    a = ["Vision",3]
+    pila1.apilar(a)
+    a = ["Ant-Man",5]
+    pila1.apilar(a)
+    a = ["Rocket Racon", 5]
+    pila1.apilar(a)
+    a = ["Wasp",4]
+    pila1.apilar(a)
+    a = ["Black Panther",4]
+    pila1.apilar(a)
+    a = ["Dr. Strange",6]
+    pila1.apilar(a)
+    a = ["Capitana Marvel",3]
+    pila1.apilar(a)
 ## FUNCIONES DE CARGA ##
 
 ## EJERCICIOS ##
@@ -232,7 +272,7 @@ def bitacoras(): #22 ok
     print ('Cantidad de Misiones: ', N_mision, '  Créditos Obtenidos: ',CG_2)
     if Han == True:
         print ('Din Djarin capturo a Han Solo')
-  
+
     print (' ')
 
     if CG_2 > CG_1:
@@ -245,7 +285,18 @@ def bitacoras(): #22 ok
     str(input())
 
 def personajes_MCU(): #24
-    pass
+    personajes = pila()
+    pila_aux = pila()
+
+    cargar_MCU(personajes)
+
+    while not personajes.pila_vacia():
+        rocket = personajes.tamanio()
+        groot = personajes.tamanio()
+        personaje = personajes.desapilar()
+
+        pila_aux.apilar(personaje)
+
 
 
 ## EJERCICIOS ##
