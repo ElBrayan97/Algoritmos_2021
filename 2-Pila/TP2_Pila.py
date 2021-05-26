@@ -290,12 +290,45 @@ def personajes_MCU(): #24
 
     cargar_MCU(personajes)
 
+    print ("ejercicio A")
     while not personajes.pila_vacia():
-        rocket = personajes.tamanio()
-        groot = personajes.tamanio()
-        personaje = personajes.desapilar()
+        pila_aux.apilar(personajes.desapilar())
+    while not pila_aux.pila_vacia():
+        personaje = pila_aux.desapilar()
+        if (personaje[0] == "Rocket Racon") or (personaje[0] == "Groot"):
+            print(personaje[0], " esta en la posicion ", pila_aux.tamanio())
+        personajes.apilar(personaje)
 
+    print ("ejercicio B y C")
+    while not personajes.pila_vacia():
+        personaje = personajes.desapilar()
+        if (personaje[1] > 5) or (personaje[0] == "Black Widow"):
+            print(personaje[0]," participo en ",personaje[1]," películas")
         pila_aux.apilar(personaje)
+    while not pila_aux.pila_vacia():
+        personajes.apilar(pila_aux.desapilar())
+
+    print ("ejercicio D")
+    while not personajes.pila_vacia():
+        personaje = personajes.desapilar()
+        if (personaje[0][0:1]) == "C" or (personaje[0][0:1]) == "D" or (personaje[0][0:1]) == "G":
+            print (personaje[0])  
+
+
+
+"""
+a. Determinar en qué posición se encuentran Rocket Raccoon y Groot, tomando como posición uno la cima de la pila; ready!
+b. Determinar los personajes que participaron en más de 5 películas de la saga, además indicar la cantidad de películas en la que aparece;
+c. Determinar en cuantas películas participo la Viuda Negra (Black Widow);
+d. Mostrar todos los personajes cuyos nombre empiezan con C, D y G.
+
+"""
+
+
+
+
+
+
 
 
 
@@ -311,8 +344,8 @@ def personajes_MCU(): #24
 
 # word = str(input())
 # palindromo(word)
-ordenar()
 
-
+# ordenar()
 # personajes()
 # bitacoras()
+# personajes_MCU()
