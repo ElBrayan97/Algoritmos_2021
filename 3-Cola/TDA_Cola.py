@@ -5,8 +5,8 @@ class Cola():
     def arribo(self, dato):
         self.__elementos.append(dato)
     
-    def atencion(self,):
-        return(self.__elementos.pop(0))
+    def atencion(self):
+        return (self.__elementos.pop(0))
     
     def cola_vacia(self):
         return len(self.__elementos) == 0
