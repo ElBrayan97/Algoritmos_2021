@@ -55,7 +55,7 @@ def palindromo(palabra): # 3
     if (ac==tamword):
         print ("la palabra "+palabra+" es un palindromo")
 
-def primos():
+def primos(): # Esto no ha terminado!
     cola1 = Cola()
 
     for i in range (0,10):
@@ -72,8 +72,35 @@ def primos():
     for i in range(0,cola1.tamanio()):
         print (cola1.atencion())
 
+def invertir_pila(A): # 5
+    P = pila()
+    C = Cola()
+    for i in range (0,len(A)):
+        print (A[i])
+        P.apilar(A[i])
 
+    while not P.pila_vacia():
+        C.arribo(P.desapilar())
 
+    for i in range(0,C.tamanio()):
+        aux = C.atencion()
+        print(aux)
+        P.apilar(aux)
+
+def ocurrencias(d): # 6
+    C = Cola()
+    for i in range(0,10):
+        C.arribo(randint(0,10))
+    
+    cont = 0
+
+    while not C.cola_vacia():
+        if C.atencion() == d:
+            cont += 1
+    if (cont == 0):
+        print(d +" no aparece en la cola")
+    else:
+        print(d +" aparece "+cont+" veces en la cola")
 
 
 # HACER 11, 12 16 Y 22
@@ -81,4 +108,8 @@ def primos():
 # vocales("onomatopeya")
 # invertir("hola")
 # palindromo("ala")
-primos()
+# primos()
+A = [1,2,3,4,5]
+# invertir_pila(A)
+a = int(input())
+ocurrencias(a)
