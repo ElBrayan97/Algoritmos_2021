@@ -60,7 +60,7 @@ class Lista(object):
 
         return pos
 
-        # [1, 2, 3, 4, 4, 4, 5, 6,7]
+        # [1, 2, 3, 4, 4, 4, 5, 6, 7]
     
     def obtener_elemento(self, pos):
         if(pos >= 0 ):
