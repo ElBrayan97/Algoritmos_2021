@@ -98,18 +98,32 @@ def ocurrencias(d): # 6
         if C.atencion() == d:
             cont += 1
     if (cont == 0):
-        print(d +" no aparece en la cola")
+        print(d ," no aparece en la cola")
     else:
-        print(d +" aparece "+cont+" veces en la cola")
+        print(d ," aparece ",cont," veces en la cola")
 
+def eliminar_pos(element): # 7
+    C = Cola()
+    for i in range (0,10):
+        C.arribo(randint(0,10))
+    
+
+    for i in range(0,element+1):
+        if (i==element):
+            print (C.atencion())
+        else:
+            C.move_end()
 
 # HACER 11, 12 16 Y 22
+
+a = int(input())
+
 
 # vocales("onomatopeya")
 # invertir("hola")
 # palindromo("ala")
 # primos()
-A = [1,2,3,4,5]
+#A = [1,2,3,4,5]
 # invertir_pila(A)
-a = int(input())
-ocurrencias(a)
+#ocurrencias(a)
+#eliminar_pos(a)
