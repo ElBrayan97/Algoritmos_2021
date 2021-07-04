@@ -59,8 +59,6 @@ def eliminar(P):
 Personajes = Cola()
 # Nombre = 0 y Planeta = 1
 cargar_personajes(Personajes)
-barrido_cola(Personajes)
-print ("")
 ##
 mostrar_AET(Personajes)
 print("")
