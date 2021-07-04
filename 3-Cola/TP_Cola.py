@@ -1,18 +1,7 @@
-from typing import ValuesView
 from TDA_Cola import Cola
 from TDA_Pila import pila
 from random import randint
 
-## FUNCIONES DE CARGA ##
-def cargar_personajes(DS):
-    DS.arribo(["Han Solo","Corellia"])
-    DS.arribo(["Luke Skywalker","Tierra"])
-    DS.arribo(["Yoda","Planeta1"])
-    DS.arribo(["Personaje1","Alderaan"])
-    DS.arribo(["Personaje2","Endor"])
-    DS.arribo(["Jar Jar Binks","Planeta4"])
-    DS.arribo(["Personaje3","Tatooine"])
-    DS.arribo(["Personaje4","Planeta4"])
 
 ## FUNCIONES DE CARGA ##
 
@@ -127,28 +116,9 @@ def eliminar_pos(element): # 7
         else:
             C.move_end()
 
-def cola_personajes():
-    C = Cola()
-    # Nombre=0 y Planeta = 1
-    cargar_personajes(C)
-    for i in range(C):
-        if (C.en_frente()[1]=="Alderaan") or (C.en_frente()[1]=="Endor") or (C.en_frente()[1]=="Tatooine"):
-            print (C.move_end()[0]) # me obliga a usar el atencion asignarlo a una variable y ahi recien mostrarlo y luego encolarlo denuevo... pinche python... tengo sueño che!
-        elif (C.en_frente()[0]=="Luke Skywalker") or (C.en_frente()[0]=="Han Solo"):
-            print (C.move_end()[1])
-        elif (C.en_frente()[0]=="Yoda"):
-            C.arribo(["Personaje8","Tatooine"])
-            C.move_end()
-        elif (C.en_frente()=="Jar Jar Binks"):
-            C.move_end()
-            print ("Se removio a: ",C.atencion())
-        else:
-            C.move_end()
-
-
 # HACER 11, 12 16 Y 22
 
-a = int(input())
+#a = int(input())
 
 # vocales("onomatopeya")
 # invertir("hola")
