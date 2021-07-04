@@ -48,11 +48,10 @@ def insertar(P):
 def eliminar(P):
     print("ELIMINAR")
     for i in range(0, P.tamanio()-1):   
-        if (P.en_frente() == "Jar Jar Binks"):
-            print (P.move_end())
-            print ("Se removio a: ", P.atencion())
+        if (P.en_frente()[0] == "Jar Jar Binks"):
+            P.move_end()
+            print ("Se removio a: ", P.atencion()[0])
         else:
-            print("Hola")
             P.move_end()
 
 
