@@ -22,45 +22,31 @@ def determinar(C): # A
         if (data[1]=="Capitana Marvel"):
             print ("Capitana Marvel es: ",data[0])
         aux.arribo(data)
-        if data[2]=="F":
-            print (data)
-        else:
-            print (data)
-        if data[0]=="Scot Lang":
-            print ("Scot Lang es: ", data[1])
+
     while not aux.cola_vacia():
         C.arribo(aux.atencion())
 
-
-def feminismo4ever(C): # B
+def mujeres(C): # B
     aux=Cola()
+    print("Mujeres")
     while not C.cola_vacia():
         data = C.atencion()
-        if (data[1]=="Capitana Marvel"):
-            print ("Capitana Marvel es: ",data[0])
-        aux.arribo(data)
         if data[2]=="F":
             print (data)
-        else:
-            print (data)
-        if data[0]=="Scot Lang":
-            print ("Scot Lang es: ", data[1])
+        C.arribo(data)
+
     while not aux.cola_vacia():
         C.arribo(aux.atencion())
 
-def scotLang(C):
+def hombres(C): #C
     aux=Cola()
+    print ("Hombres: ")
     while not C.cola_vacia():
         data = C.atencion()
-        if (data[1]=="Capitana Marvel"):
-            print ("Capitana Marvel es: ",data[0])
+        if data[2]=="M":
+            print (data)
         aux.arribo(data)
-        if data[2]=="F":
-            print (data)
-        else:
-            print (data)
-        if data[0]=="Scot Lang":
-            print ("Scot Lang es: ", data[1])
+    
     while not aux.cola_vacia():
         C.arribo(aux.atencion())
 
