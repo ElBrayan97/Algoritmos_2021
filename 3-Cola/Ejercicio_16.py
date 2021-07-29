@@ -15,38 +15,3 @@ def cargar_cola(C):
     C.arribo(["T'Challa", "Pantera Negra", "M"])
     print("Cola Cargada!")
 
-def determinar(C): # A
-    aux=Cola()
-    while not C.cola_vacia():
-        data = C.atencion()
-        if (data[1]=="Capitana Marvel"):
-            print ("Capitana Marvel es: ",data[0])
-        aux.arribo(data)
-
-    while not aux.cola_vacia():
-        C.arribo(aux.atencion())
-
-def mujeres(C): # B
-    aux=Cola()
-    print("Mujeres")
-    while not C.cola_vacia():
-        data = C.atencion()
-        if data[2]=="F":
-            print (data)
-        C.arribo(data)
-
-    while not aux.cola_vacia():
-        C.arribo(aux.atencion())
-
-def hombres(C): #C
-    aux=Cola()
-    print ("Hombres: ")
-    while not C.cola_vacia():
-        data = C.atencion()
-        if data[2]=="M":
-            print (data)
-        aux.arribo(data)
-    
-    while not aux.cola_vacia():
-        C.arribo(aux.atencion())
-
