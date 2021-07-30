@@ -24,7 +24,8 @@ class Cola():
         return len(self.__elementos)
 
     def aplicar_prioridad_ascendente(self):
-        pass
+        self.__elementos.sort()
+        self.__prioridad.sort()
 
     def aplicar_prioridad_descendente(self):
         pass
