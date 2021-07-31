@@ -70,7 +70,7 @@ def conS(cola): #E
         data = cola.atencion()
         if data[0][0:1]=="S":
             print (data)
-    aux.arribo(data)
+        aux.arribo(data)
 
     reconstruir(cola,aux)
 
@@ -79,7 +79,8 @@ def carolDanvers(cola): #F
     while not cola.cola_vacia():
         data = cola.atencion()
         if data[0] =="Carol Danvers":
-            print (data)
+            print ("Carol Danvers es: ",data[1])
+        aux.arribo(data)
 
     reconstruir(cola,aux)
 
