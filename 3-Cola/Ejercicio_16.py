@@ -1,6 +1,6 @@
 from TDA_Cola import Cola
 
-C=Cola()
+C = Cola()
 
 def cargar_cola(C):
     C.arribo(["Steve Rogers","Capitán América","M"])
