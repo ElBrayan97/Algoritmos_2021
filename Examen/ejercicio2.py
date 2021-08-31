@@ -1,38 +1,46 @@
 from TDA_Cola import Cola
 from TDA_Pila import pila
-"""
-lo hice pensando en un sublista de cada una de las posiciones de la cola y la pila, y los 
-datos tienen el orden del ejercicio, 0:Hora. 1:Aplicacion. 2:Mensaje.
-"""
-def eliminar_facebook(notificaciones):
-    for i in range(0,len(notificaciones)):
+
+notificaciones = Cola
+insta = pila
+
+def eliminar_facebook(notificaciones): # A
+    for i in range(0, notificaciones.tamanio()-1):
         aux = notificaciones.atencion()
-        if aux[1] == "Facebook":
-            aux = []
-        else:
+        if (aux[1] ==  "Facebook"):
+            aux = None
+        else: 
             notificaciones.move_end()
         
 
-def mostrar_twitter(notificaciones):
-    for i in range (0,len(notificaciones)):
-        if notificaciones.en_frente()=="Twitter":
+def mostrar_twitter(notificaciones): # B
+    for i in range (0, notificaciones.tamanio()-1):
+        if (notificaciones.en_frente()[1] == "Twitter") and (notificaciones.en_frente()[2] == "Python") :
             aux = notificaciones.atencion()
-            print("Python: ",aux[2])
+            print(aux)
             notificaciones.arribo(aux)
+        else:
+            notificaciones.move_end()
 
-def instagram(notificaciones, insta):
-    while not notificaciones.cola_vacia:
-        if notificaciones.en_frente()[1]=="Instagram":
+def instagram(notificaciones, insta): # C
+    while not notificaciones.cola_vacia():
+        if (notificaciones.en_frente()[1] == "Instagram"):
             insta.apilar(notificaciones.atencion())
 
     while not insta.pila_vacia():
         print(insta.desapilar())
-        
-
 
 
 notificaciones = Cola
 insta = pila
+
+notificaciones.arribo([16, "Instagram", "mensaje"])
+notificaciones.arribo([17, "Instagram", "mensaje"])
+notificaciones.arribo([18, "Twitter", "Python" ])
+notificaciones.arribo([19, "Twitter", "mensaje" ])
+notificaciones.arribo([19, "Twitter", "Python" ])
+notificaciones.arribo([20, "Facebook", "hola" ])
+notificaciones.arribo([21, "Facebook", "hola" ])
 
 eliminar_facebook(notificaciones)
 mostrar_twitter(notificaciones)

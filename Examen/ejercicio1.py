@@ -1,16 +1,16 @@
-def barrido(a):
-    if(len(a)>0):
-        print(a[0])
-        barrido(a[1:])
+lista = ["Darth Vader","Han Solo","Yoda","Luke Skywalker"]
 
-def busqueda(a):
-    if(len(a)>0):
-        if a[0] == "yoda":
-            print("yoda esta en la lista")
+def barrido(vector):
+    if(len(vector)>0):
+        print(vector[0])
+        barrido(vector[1:])
+
+def busqueda(vector):
+    if(len(vector)>0):
+        if vector[0] == "Yoda" or vector[0] == "yoda":
+            print("Yoda se encuentra en el vector")
         else:
-            busqueda(a[1:])
-
-lista = ["p1","p2","yoda","p3"]
+            busqueda(vector[1:])
 
 barrido(lista)
 busqueda(lista)

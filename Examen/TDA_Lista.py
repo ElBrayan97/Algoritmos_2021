@@ -1,15 +1,18 @@
+from recursividad import quicksort
 class Lista(object):
     """crea un objeto de tipo lista"""
 
     def __init__(self):
         self.__elementos = []
-    
+
+
     def __criterio(self, dato, criterio):
         if(criterio == None):
             return dato
         else:
             return dato[criterio]
 
+    # esta insercion funciona para listas y diccionarios
     def insertar(self, dato, criterio=None): #! tener en cuenta que la insercion es ordenada
         if(len(self.__elementos) == 0):
             self.__elementos.append(dato)
@@ -34,6 +37,7 @@ class Lista(object):
         self.__elementos.pop(pos)
         self.insertar(nuevo_valor)
 
+
     def busqueda(self, buscado, criterio=None, clave=None, criterio_clave=None):
         pos = -1
         primero = 0
@@ -57,36 +61,46 @@ class Lista(object):
             
             if(self.__elementos[pos][criterio_clave] != clave):
                 pos = -1
-
         return pos
 
         # [1, 2, 3, 4, 4, 4, 5, 6, 7]
-    
+
+
     def obtener_elemento(self, pos):
         if(pos >= 0 ):
             return self.__elementos[pos]
         else:
             return None
 
+
     def lista_vacia(self):
-        return len(self.__elementos) == 0
+        return (len(self.__elementos) == 0)
     
     def tamanio(self):
         return len(self.__elementos)
 
+
     def barrido(self):
+        #print (self.__elementos)
         for elemento in self.__elementos:
             print(elemento)
-    
+
+    def barrido_descendente(self):
+        #print (self.__elementos)
+        for i in (len(self.__elementos),0):
+            print(self.__elementos[i])
+
     def barrido_jedi(self):
         for elemento in self.__elementos:
             print(elemento['name'])
-    
+
+
     def barrido_green(self):
         for elemento in self.__elementos:
             if('green' in elemento['lightsaber_color']):
                 print(elemento['name'])
-    
+
+
     def barrido_lista_autos(self):
         for elemento in self.__elementos:
             print(elemento)
@@ -97,12 +111,14 @@ class Lista(object):
     #     for elemento in self.__elementos:
     #         for valor in elemento.values():
     #             print(valor)
-        
-    def barrido_eliminando(self, datos_eliminar):
 
+
+    def barrido_eliminando(self, datos_eliminar):
         for elemento in self.__elementos:
             if(elemento in datos_eliminar):
                 self.__elementos.remove(elemento)
-    
+
+
     def ordenar(self, criterio):
         quicksort(self.__elementos, 0, len(self.__elementos)-1, criterio)
+
