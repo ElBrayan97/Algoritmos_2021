@@ -87,7 +87,7 @@ class Lista(object):
 
     def barrido_descendente(self):
         #print (self.__elementos)
-        for i in (len(self.__elementos),0):
+        for i in (len(self.__elementos)-1,0):
             print(self.__elementos[i])
 
     def barrido_jedi(self):

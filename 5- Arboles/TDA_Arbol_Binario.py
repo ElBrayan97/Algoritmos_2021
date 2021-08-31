@@ -49,6 +49,29 @@ def postorden(self):
         if (self.izq is not None):
             self.izq.postorden()
 
+def eliminar_nodo(self, dato): # por mis huevos que esto no anda...
+    x=None
+    if self.info is not None:
+        if dato < self.info:
+            x = self.izq.eliminar_nodo(self.der, dato)
+        elif (dato > self.info):
+            x = self.izq.eliminar_nodo(self.der, dato)
+        else:
+            x = self.info
+            if self.izq is None:
+                self.info = self.der
+            elif self.der is None:
+                self.info = self.izq
+            else:
+                self.izq, x = remplazar(self.izq)
+                self.info, self.nrr = x.info, x.nrr
+
+
+
+
+def remplazar(self, dato, reemplazo):
+    aux = None
+    
 
 
 

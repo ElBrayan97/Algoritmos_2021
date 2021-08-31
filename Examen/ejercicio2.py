@@ -1,8 +1,8 @@
 from TDA_Cola import Cola
 from TDA_Pila import pila
 
-notificaciones = Cola
-insta = pila
+notificaciones = Cola()
+insta = pila()
 
 def eliminar_facebook(notificaciones): # A
     for i in range(0, notificaciones.tamanio()-1):
@@ -23,16 +23,15 @@ def mostrar_twitter(notificaciones): # B
             notificaciones.move_end()
 
 def instagram(notificaciones, insta): # C
-    while not notificaciones.cola_vacia():
+    for i in range (0, notificaciones.tamanio()-1):
         if (notificaciones.en_frente()[1] == "Instagram"):
             insta.apilar(notificaciones.atencion())
-
+            
     while not insta.pila_vacia():
         print(insta.desapilar())
 
 
-notificaciones = Cola
-insta = pila
+
 
 notificaciones.arribo([16, "Instagram", "mensaje"])
 notificaciones.arribo([17, "Instagram", "mensaje"])
