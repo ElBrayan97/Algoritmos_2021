@@ -3,7 +3,7 @@ from TDA_Lista import Lista
 #Ejercicios para entregar 6, 7, 15 y 22 
 
 SuperH = [
-    {'name':'Batman','anio':1939,'casa_comic':'DC','biografía':'traje'},
+    {'name':'Batman','anio':1939,'casa_comic':'DC Comics','biografía':'traje'},
     {'name':'Iron Man','anio':1963,'casa_comic':'Marvel','biografía':'armadura'},
     {'name':'Spyder Man','anio':1962,'casa_comic':'Marvel','biografía':'traje'},
     {'name':'Dr. Strange','anio':1963,'casa_comic':'DC Comics','biografía':'capa'},
@@ -26,7 +26,7 @@ personaje = Lista_Super.obtener_elemento(Lista_Super.busqueda('Wolverine','name'
 print (personaje['anio'])
 
 personaje = Lista_Super.obtener_elemento(Lista_Super.busqueda('Dr. Strange','name')) # C
-personaje['casa_comic']='Marvel'
+personaje['casa_comic'] = 'Marvel'
 Lista_Super.insertar(personaje,'name')
 
 for i in range (0, Lista_Super.tamanio()-1): # D y E
@@ -49,5 +49,16 @@ for i in range (0, Lista_Super.tamanio()-1): # H
     if (personaje['name'][0:1] == "B") or (personaje['name'][0:1] == "M") or (personaje['name'][0:1] == "S"): 
         print (personaje['name'])
 
+dc = 0
+mv = 0
+
 for i in range (0, Lista_Super.tamanio()-1): # I
+    
     personaje = Lista_Super.obtener_elemento(i)
+    if (personaje['casa_comic'] == "Marvel"):
+        mv+=1
+    else:
+        dc+=1
+
+print("Personajes de DC Comics: ",dc)
+print("Personajes de Marvel Comics: ",mv)
