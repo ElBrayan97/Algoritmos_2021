@@ -1,5 +1,5 @@
 from TDA_Cola import Cola
-
+# Entrega de los ejercicios 5, 16, 23 
 
 class Arbol(object):
 
