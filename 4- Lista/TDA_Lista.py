@@ -11,6 +11,7 @@ class Lista(object):
         else:
             return dato[criterio]
 
+
     # esta insercion funciona para listas y diccionarios
     def insertar(self, dato, criterio=None): #! tener en cuenta que la insercion es ordenada
         if(len(self.__elementos) == 0):
@@ -31,10 +32,24 @@ class Lista(object):
         else:
             return None
 
+    def eliminarTodo(self):
+        self.__elementos.clear()
 
-    def modificar_elemento(self, pos, nuevo_valor):
+    def eliminar_primero(self): # se fija en el primer elemento de la lista y lo devuelve
+        return (self.__elementos.pop(0))
+
+
+    def modificar_elemento(self, pos, nuevo_valor): # se fija en un elemento en "pos" y lo modifica por "nuevo valor"
         self.__elementos.pop(pos)
         self.insertar(nuevo_valor)
+
+    def reordenar(self,criterio):
+        auxiliar = []
+        while not self.lista_vacia():
+            auxiliar.append(self.__elementos.pop())
+        for dato in auxiliar:
+            self.insertar(dato,criterio)
+
 
 
     def busqueda(self, buscado, criterio=None, clave=None, criterio_clave=None):
@@ -62,8 +77,6 @@ class Lista(object):
                 pos = -1
         return pos
 
-        # [1, 2, 3, 4, 4, 4, 5, 6, 7]
-
 
     def obtener_elemento(self, pos):
         if(pos >= 0 ):
@@ -74,20 +87,21 @@ class Lista(object):
 
     def lista_vacia(self):
         return (len(self.__elementos) == 0)
-    
+
+
     def tamanio(self):
         return len(self.__elementos)
 
 
     def barrido(self):
-        #print (self.__elementos)
         for elemento in self.__elementos:
-            print(elemento)
+            print(elemento['name'])
+            #return(elemento)
 
 
     def barrido_jedi(self):
         for elemento in self.__elementos:
-            print(elemento['name'])
+            return(elemento['name'])
 
 
     def barrido_green(self):
