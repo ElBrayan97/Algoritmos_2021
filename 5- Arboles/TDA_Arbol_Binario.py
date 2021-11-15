@@ -239,7 +239,7 @@ class Arbol(object):
             if(self.der is not None):
                 self.der.conta_criaturas_derrotadas(dic)
 
-# arbol = Arbol()
+#arbol = Arbol()
 
 # dic = {} #? derrotado_por : cantidad
 # arbol.conta_criaturas_derrotadas(dic)
@@ -265,19 +265,22 @@ class Arbol(object):
 #                 aux = aux.der
 #             aux = Arbol(hijo)
 
+"""
+superheroe = {'name': 'Doctor Strnge', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+superheroe = {'name': 'Capitan America', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+superheroe = {'name': 'Capitana Marvel', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+superheroe = {'name': 'Docasdasdas', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+superheroe = {'name': 'Iron Man', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+superheroe = {'name': 'Iron Hulk', 'villano': False, 'aparicion': 1942}
+arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
 
-# superheroe = {'name': 'Doctor Strnge', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
-# superheroe = {'name': 'Capitan America', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
-# superheroe = {'name': 'Capitana Marvel', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
-# superheroe = {'name': 'Docasdasdas', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
-# superheroe = {'name': 'Iron Man', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
-# superheroe = {'name': 'Iron Hulk', 'villano': False, 'aparicion': 1942}
-# arbol = arbol.insertar_nodo(superheroe['name'], superheroe)
+arbol.inorden()
+"""
 
 
 # from random import randint
