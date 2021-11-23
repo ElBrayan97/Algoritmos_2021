@@ -85,10 +85,12 @@ criaturas.mostrar_informacion('Talos')
 def ordenar(elemento): #D
     return (elemento[1])
 
+
 dic = {} #Hago diccionario vacio para poder cargar luego.
 criaturas.contador_criaturas_derrotadas(dic)
 lista = list(dic.items()) # Creo una lista con los items del diccionario
 lista.sort(key=ordenar, reverse=True)
+
 
 print('\nHeroes/Dioses que derrotaron a la mayor cantidad de criaturas:')
 for pos in range (0,3):
@@ -97,7 +99,6 @@ for pos in range (0,3):
 
 print('\nLista de criaturas derrotadas por Heracles:') #E
 criaturas.criaturas_derrotadas('Heracles')
-
 
 
 print('\nLista de criaturas que no han sido derrotadas:') #F

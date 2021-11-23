@@ -37,11 +37,10 @@ print ("Nombre: ",nodo.datos['nombre'])
 print ("Zona Asignada: ",nodo.datos['zona'])
 
 
-#5 no c porque no anda.... 
-#print ("\nT-Rex en la isla: ")
-#datos = Arbol_Code.inorden_dinos("T-Rex")
-#while len(datos)!=0:
-#    print (datos.pop())
+#5
+print ("\nT-Rex en la isla: ")
+Arbol_Nombres.inorden_REX("T-Rex")
+
 
 #6
 #info,datos = Arbol_Nombres.busqueda("Sgimoloch")
@@ -53,11 +52,9 @@ print ("Zona Asignada: ",nodo.datos['zona'])
 
 #7
 print ("\nUbicacion de los Raptores en la isla: ")
-datos = Arbol_Code.inorden_dinos("Raptor")
-while len(datos)!=0:
-    aux = datos.pop()
-    print (aux['zona'])
+Arbol_Nombres.inorden_raptor("Raptor")
+
 
 #8    
-name = str(input("Ingrese el nombre d eun Dinosaurio: "))
-print ("En la isla hay :",Arbol_Nombres.contar_dinos(name), name)
+name = "Diplodocus"
+print ("\nEn la isla hay :",Arbol_Nombres.contar_dinos(name), name)

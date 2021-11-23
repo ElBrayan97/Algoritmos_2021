@@ -204,16 +204,28 @@ class Arbol (object):
             if (nodo.der is not None):
                 pendientes.arribo(nodo.der)   
 
-    def inorden_dinos(self,name): #WTF! porque no anda :/
-        arr=[]
+
+
+#FUNCIONES EXAMEN
+    def inorden_REX(self,name): 
         if (self.info is not None):
             if (self.izq is not None):
-                self.izq.inorden_dinos(name)
+                self.izq.inorden_REX(name)
             if (self.info == name):
-                arr.append(self.datos)
+                print ("Nombre:",self.datos['nombre']," Codigo:", self.datos['code']," Zona Asignada:",self.datos['zona'])
             if (self.der is not None):
-                self.der.inorden_dinos(name)
-        return (arr)
+                self.der.inorden_REX(name)
+
+
+    def inorden_raptor(self,name): 
+        if (self.info is not None):
+            if (self.izq is not None):
+                self.izq.inorden_raptor(name)
+            if (self.info == name):
+                print ("Zona Asignada:",self.datos['zona'])
+            if (self.der is not None):
+                self.der.inorden_raptor(name)
+
 
     def contar_dinos (self, name):
         cont = 0
