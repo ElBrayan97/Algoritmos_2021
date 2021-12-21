@@ -98,13 +98,19 @@ def eliminar_impresora(red):
 
 cargar_aristas(red)
 
-barridos(red)
+print ("adyascente a debian")
+print (red.es_adyacente('Debian','Arch'))
 
-rutamascorta(red)
+#barridos(red)
 
-arbol_minimo(red)
+#rutamascorta(red)
 
-eliminar_impresora(red)
+#arbol_minimo(red)
+
+#eliminar_impresora(red)
+
+
+
 
 
 

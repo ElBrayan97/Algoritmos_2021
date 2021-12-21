@@ -27,6 +27,7 @@ for dino in datos: #Carga
     Arbol_Code = Arbol_Code.insertar_nodo(dino['code'],dino)
 
 #3
+"""
 print ("\nBarrido por nombre")
 Arbol_Nombres.inorden()
 
@@ -43,8 +44,12 @@ Arbol_Nombres.inorden_REX("T-Rex")
 
 
 #6
-#info,datos = Arbol_Nombres.busqueda("Sgimoloch")
-#print (info, datos)
+"""
+info = Arbol_Nombres.busqueda("Sgimoloch")
+print (info)
+Arbol_Nombres.busqueda_proximidad("Sgimoloch")
+
+
 #Arbol_Nombres.eliminar_nodo(info)
 #Arbol_Code.busqueda
 

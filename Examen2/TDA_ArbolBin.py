@@ -119,7 +119,7 @@ class Arbol (object):
         pos = None
         if (self.info is not None):
             if(self.info == clave):
-                pos = self.datos
+                pos = self
             elif (clave < self.info and self.izq is not None):
                 pos = self.izq.busqueda(clave)
             elif (self.der is not None):
@@ -134,6 +134,7 @@ class Arbol (object):
                 print(self.info)
             if(self.der is not None):
                 self.der.busqueda_proximidad(clave)
+
 
     def reemplazar (self):
         """Determina el nodo que remplazará al que se elimina."""
@@ -209,147 +210,62 @@ class Arbol (object):
             if (nodo.izq is not None):
                 pendientes.arribo(nodo.izq)
             if (nodo.der is not None):
-                pendientes.arribo(nodo.der)               
+                pendientes.arribo(nodo.der)    
 
+####################FUNCIONES EXTRA################################
+#########Funciones EJ 1 (Recuperatorio Parcial 2) ########################################
 
-###################################################################################
+#Punto 4
+    def mostrarDino_792(self,clave):
+        pos = self.busqueda(clave)
+        if pos :
+            print (pos.datos) 
 
-
-
-#Funciones EJ Nº5  
-
-    def inorden_solo_villanos (self):
-        """Realiza el barrido inorden del arbol mostrando solo a los villanos.
-        Los elementos se listan en orden descendiente (menor a mayor)."""
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.inorden_solo_villanos()
-            if (not self.datos['Bando']): 
-                print (self.info)
-            if (self.der is not None):
-                self.der.inorden_solo_villanos()
-
-    def inorden_heroes_LetraC (self):
-        """Realiza el barrido inorden del arbol mostrando solo a los heroes cuyo nombre comienza con C.
-        Los elementos se listan en orden ascendente (menor a mayor)."""
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.inorden_heroes_LetraC() #ordeno de menor a mayor
-            if (self.info[0]=='C'):#en el .info guardo la informacion del nodo.
-                print (self.info)
-            if (self.der is not None):
-                self.der.inorden_heroes_LetraC()
-
-    def contar_nodos (self, categoria):#categoria= campo que le paso (true o false)
-        """Cuenta la cantidad de nodos (villanos o heroes) en el arbol, dependiendo de la categoria dada (True para heroes, False para villanos)."""
-        cantidad = 0
-        if (self.info is not None):#si la raiz el 1er nodo del arbol no esa vacia.
-            if (self.datos['Bando'] == categoria):
-                cantidad += 1
-            #recorro los nodos y llamo a la funcion. 
-            if (self.izq is not None):
-                cantidad += self.izq.contar_nodos(categoria)
-            if (self.der is not None):
-                cantidad += self.der.contar_nodos(categoria)
-        return cantidad #retorna la cantidad total.
-
-    def postorden_heroes (self):
-        """Realiza el barrido postorden del los superheroes en el arbol.
-        Los elementos se listan en orden descendente (mayor a menor)."""
-        if(self.info is not None):
-            if(self.der is not None):
-                self.der.postorden_heroes()
-            if (self.datos['Bando']):
-                print(self.info)
-            if(self.izq is not None):
-                self.izq.postorden_heroes()
-
-    def separar_arbol (self, arbol_aux, categoria):
-        """Separa los elementos del arbol en base a la categoria dada (True para heroes, False para villanos)."""
-        if(self.info is not None):
-            if (self.datos['Bando'] == categoria):
-                arbol_aux = arbol_aux.insertar_nodo(self.info, self.datos)#asigno el arbol_auxiliar al insertar nodo
-            if(self.izq is not None):
-                arbol_aux = self.izq.separar_arbol(arbol_aux, categoria)
-            if(self.der is not None):
-                arbol_aux = self.der.separar_arbol(arbol_aux, categoria)
-        return arbol_aux
-
-
-
-
-#Funciones EJ Nº 23
+#Punto 5
+    def busqueda_Trex(self, clave):
+            if(self.info is not None):
+                    if(self.info == clave):
+                        print(self.datos)
+                    if(self.izq is not None):
+                        self.izq.busqueda_Trex(clave)
+                    if(self.der is not None):
+                        self.der.busqueda_Trex(clave)
     
-    def barrido_derrotados_por(self):
-        #Realiza el barrido inorden del arbol de criaturas mostrando la criatura y quien la capturo.
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.barrido_derrotados_por()
-            if (self.datos['capturada'] != ''):
-                print (self.info, ' fue derrotada por ', self.datos['capturada'])
-            if (self.der is not None):
-                self.der.barrido_derrotados_por()
-    
-    def cargar_descripcion (self, criatura):
-        """Carga una breve descripcion de la criatura si ésta existe en el arbol."""
-        pos = self.busqueda(criatura)
-        if (pos):
-            desc = input('Ingrese una breve descricpion de la criatura: ')
-            pos.datos['descripcion'] = desc
-        else:
-            print('No hay ninguna criatura con ese nombre en el arbol.')
+#Punto 6 
+    def modificar_dino(self):
+        buscado = input('Ingrese El Nombre Completo Del Dinosauro Que Desea Cambiar De La Lista Anterior: ')
+        pos = self.busqueda(buscado)
+        if  pos:
+            self.busqueda(buscado)
+            nuevo_nombre = input('Ingrese el nuevo nombre: ')
+            nombre, datos = self.eliminar_nodo(buscado)
+            datos['nombre'] = nuevo_nombre
+            self = self.insertar_nodo(nuevo_nombre, datos)
+            print()
+        self.inorden()
 
-    def mostrar_informacion (self, criatura):
-        pos = self.busqueda(criatura)
-        if (pos):
-            print(pos.info, '· Capturada por:' ,pos.datos['capturada'], '· Descripcion:' , pos.datos['descripcion'])
-        else:
-            print('No hay ninguna criatura con ese nombre.')
-
-    def contador_criaturas_derrotadas(self, dic):
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.contador_criaturas_derrotadas(dic)
-            if (self.datos['capturada'] in dic and self.datos['capturada'] != ''):
-                dic[self.datos['capturada']] += 1 #el dic tiene un solo campo, el nombre del heroe, al que se le asigna un valor numericoo (Cantidad de capturas)
-            elif (self.datos['capturada'] != ''):
-                dic[self.datos['capturada']] = 1
-            if (self.der is not None):
-                self.der.contador_criaturas_derrotadas(dic)
-
-    def criaturas_derrotadas (self, heroe):
-        """Muestra las criaturas derrotadas por un heroe dado."""  
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.criaturas_derrotadas(heroe)
-            if (self.datos['capturada'] == heroe):
-                print (self.info)
-            if (self.der is not None):
-                self.der.criaturas_derrotadas(heroe)
-
-    def criaturas_no_derrotadas (self):
-        """Muestra las criaturas que no han sido derrotadas."""  
-        if (self.info is not None):
-            if (self.izq is not None):
-                self.izq.criaturas_no_derrotadas()
-            if (self.datos['capturada'] == ''):
-                print (self.info)
-            if (self.der is not None):
-                self.der.criaturas_no_derrotadas()
-
-    def modificar_captura (self, criatura, heroe):
-        """Modifica quien capturo a la criatura dada por el heroe dado."""
-        pos = self.busqueda(criatura)
-        if (pos):
-            pos.datos['capturada'] = heroe
-        else:
-            print('No hay ninguna criatura con el nombre', criatura, 'en el arbol.')
-
-    def busqueda_por_coincidencia(self, clave):
+#Punto 7
+    def busqueda_Raptor(self, clave):
         if(self.info is not None):
+            if(self.info == clave):
+                print('Ubicacion',self.datos['ubicacion'])
             if(self.izq is not None):
-                self.izq.busqueda_por_coincidencia(clave)
-            if(clave in self.info):
-                print(self.info)
+                self.izq.busqueda_Raptor(clave)
             if(self.der is not None):
-                self.der.busqueda_por_coincidencia(clave)
+                self.der.busqueda_Raptor(clave)
+
+
+'''
+    #Funcion para punto 5 de Ejercio 15
+
+        def inorden_dinosaurios (self):#Esta funcion es la principal para crear los demas in orden.
+            """Realiza el barrido inorden_dinosaurios del arbol.
+            Los elementos se listan en orden ascendente (menor a mayor)."""
+            if (self.info is not None):
+                if (self.izq is not None):
+                    self.izq.inorden_dinosaurios()
+                if (self.info=='Tyrannosaurus rex'):
+                    print (self.info, self.datos)
+                if (self.der is not None):
+                    self.der.inorden_dinosaurios()
+'''
